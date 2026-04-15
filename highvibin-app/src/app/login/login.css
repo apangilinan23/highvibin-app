@@ -51,8 +51,11 @@
 	aspect-ratio: 1;
 	border-radius: 50%;
 	background: #ffffff;
-	display: grid;
-	place-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0;
 	box-shadow: inset 0 0 0 7px #f8fafc, 0 10px 20px rgba(0, 0, 0, 0.25);
 	position: relative;
 }
@@ -69,7 +72,7 @@
 	font-family: 'Baloo 2', cursive;
 	font-size: 2.1rem;
 	font-weight: 700;
-	line-height: 0.9;
+	line-height: 0.85;
 	text-align: center;
 	z-index: 1;
 	display: grid;
@@ -90,13 +93,14 @@
 }
 
 .logo-sub {
-	position: absolute;
-	right: 1.2rem;
-	bottom: 1.1rem;
-	font-size: 1.15rem;
+	display: block;
+	width: 100%;
+	text-align: center;
+	font-size: 1.1rem;
 	font-family: 'Nunito', sans-serif;
 	color: #111827;
-	z-index: 1;
+	margin-top: 0;
+	line-height: 1;
 }
 
 .brand-copy h1 {
