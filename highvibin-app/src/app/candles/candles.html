@@ -1,0 +1,32 @@
+<main class="candles-page">
+  <header class="top-bar">
+    <p class="hello">
+      Hello,
+      <strong>{{ username$ | async }}</strong>
+    </p>
+
+    <a routerLink="/login" class="back-link">Log out</a>
+  </header>
+
+  <section class="hero">
+    <h1>Candle Selection</h1>
+    <p>Pick your vibe. Each candle is hand-poured for calm spaces and brighter rituals.</p>
+  </section>
+
+  <section class="grid" aria-label="Candle products">
+    @for (candle of candles; track candle.name) {
+      <a class="card-link" [routerLink]="['/candles', candle.id]" queryParamsHandling="preserve">
+        <article class="card">
+          <div class="media" [style.background]="candle.gradient">
+            <img [src]="candle.image" [alt]="candle.name + ' sample image'" loading="lazy" />
+          </div>
+
+          <div class="card-copy">
+            <h2>{{ candle.name }}</h2>
+            <p class="scent">{{ candle.scent }}</p>
+          </div>
+        </article>
+      </a>
+    }
+  </section>
+</main>

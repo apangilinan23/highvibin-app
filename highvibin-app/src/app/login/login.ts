@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,6 +9,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './login.css',
 })
 export class Login {
+  constructor(private readonly router: Router) {}
+
   email = '';
   password = '';
   message = '';
@@ -18,6 +21,10 @@ export class Login {
       return;
     }
 
-    this.message = `Welcome to High Vibin, ${this.email}!`;
+    const username = this.email.split('@')[0]?.trim() || this.email.trim();
+    this.message = '';
+    void this.router.navigate(['/candles'], {
+      queryParams: { username },
+    });
   }
 }
